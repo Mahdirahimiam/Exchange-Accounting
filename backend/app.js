@@ -3,9 +3,10 @@ import cors from 'cors'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
 import HandleError from './utils/handleError.js'
+import catchError from './utils/catchError.js'
 
-dotenv.config({path:"./.env"})
 const app = express()
+dotenv.config({path:"./.env"})
 app.use(morgan('dev'))
 app.use(express.json())
 app.use(cors())
@@ -15,5 +16,5 @@ app.use(cors())
 app.use('*',(req,res,next)=>{
     next(new HandleError("مسیر پیدا نشد !",404))
 })
-
+app.use(catchError)
 export default app;
