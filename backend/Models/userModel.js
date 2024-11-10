@@ -28,6 +28,7 @@ const userSchema = new mongoose.Schema(
     },
     tokens: {
       type: Map,
+      of:String
     },
   },
   { timestamps: true }
