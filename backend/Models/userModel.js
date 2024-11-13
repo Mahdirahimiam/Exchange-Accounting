@@ -11,6 +11,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    username: {
+      type: String,
+      unique: true,
+      required: [true, "Username is required."],
+    },
     email: {
       type: String,
       required: true,
@@ -28,7 +33,7 @@ const userSchema = new mongoose.Schema(
     },
     tokens: {
       type: Map,
-      of:String
+      of: String,
     },
   },
   { timestamps: true }
